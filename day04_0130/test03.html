@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/jquery.fullPage.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box;}
+        a{ text-decoration: none; color:inherit; }
+        li{ list-style-type: none;}
+        body{font-size: 12px;}
+
+        header{ position: fixed; left:0; top: 0; width: 100%; height: 70px; }
+        .lnb>ul{display: flex; justify-content: center;}
+        .lnb a{display: block; padding: 1rem; }
+
+        .fp-controlArrow.fp-prev{left: 102px;}
+        .fp-controlArrow.fp-next{right: 102px;}
+        .fp-slidesNav{width: 115px;}
+        #myHeight{ height: 500px;}
+        .mySlider{width: 800px; height: 500px; margin: auto;}
+        .mySlider>div:nth-child(1){background-color: orangered;}
+        .mySlider>div:nth-child(2){background-color: rgb(0, 255, 64);}
+        .mySlider>div:nth-child(3){background-color: rgb(255, 0, 55);}
+
+        
+
+        #fp-nav ul li .fp-tooltip.right {
+            right: 20px;
+        }   
+        #fp-nav ul li .fp-tooltip{
+            border: 1px solid black; padding: 0.5rem;top: -10px;
+            border-radius: 4px; background-color: black; color: white;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+        #fp-nav ul li a.active span{
+            /* box-shadow: 0 0 0 2px orange; */
+            outline: 1px solid white ;
+            outline-offset: -3px;
+        }
+        h2{text-align: center; font-size: 120px;}
+    </style>
+</head>                     
+<body>
+    <div id="fullpage">
+        <div class="content">
+            <h2 class="animate__animated animate__bounce animate__infinite">SECTION</h2>
+        </div>
+        <div class="content">
+            <div class="mySlider">
+                <div class="bx-slider">
+                    <div>I am a slide.</div>
+                    <div>I am another slide.</div>
+                    <div>I am another slide2.</div>
+                </div>
+            </div>
+        </div>
+        <div class="content fq-auto-height">
+            <div id="myHeight"></div>
+        </div>
+        <footer class="content">
+            <h2 class="animate__animated animate__flash animate__infinite">FOOTER</h2>
+        </footer>
+        
+    </div>
+    <header>
+        <nav class="lnb">
+            <ul id="mymenu">
+                <li data-menuanchor="firstPage" class="active"><a href="#firstPage">section1</a></li>
+                <li data-menuanchor="secondPage"><a href="#secondPage">section2</a></li>
+                <li data-menuanchor="thirdPage"><a href="#thirdPage">section3</a></li>
+                <li data-menuanchor="fourthPage"><a href="#fourthPage">section4</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script/jquery.fullPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script>
+      $('#fullpage').fullpage({
+		    //options here
+		    autoScrolling:true,
+		    scrollHorizontally: true,
+            sectionsColor : ['#ccc', 'yellow', 'pink', 'skyblue'],
+            anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+            menu: '#mymenu',
+            navigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['First page', 'Second page', 'Third and last page','comment','comment2'],
+            slidesNavigation: true,
+            slidesNavPosition: 'bottom',
+            //맞춤 선택자
+		    sectionSelector: '.content',
+            autoScrolling: false,
+		    
+	    });
+        $('.bx-slider').bxSlider();
+    </script>
+</body>
+</html>

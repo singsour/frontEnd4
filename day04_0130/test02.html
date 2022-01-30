@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/jquery.fullPage.css">
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box;}
+        a{ text-decoration: none; color:inherit; }
+        li{ list-style-type: none;}
+        body{font-size: 12px;}
+
+        header{ position: fixed; left:0; top: 0; width: 100%; height: 70px; }
+        .lnb>ul{display: flex; justify-content: center;}
+        .lnb a{display: block; padding: 1rem; }
+
+        .fp-controlArrow.fp-prev{left: 102px;}
+        .fp-controlArrow.fp-next{right: 102px;}
+        .fp-slidesNav{width: 115px;}
+        #myHeight{ height: 500px;}
+    </style>
+</head>                     
+<body>
+    <div id="fullpage">
+        <div class="section">section</div>
+        <div class="section">
+            <div class="slide" data-anchor="slide1"> Slide 1 </div>
+        	<div class="slide" data-anchor="slide2"> Slide 2 </div>
+        	<div class="slide" data-anchor="slide3"> Slide 3 </div>
+	        <div class="slide" data-anchor="slide4"> Slide 4 </div>
+        </div>
+        <div class="section fq-auto-heifgt">
+            <div id="myHeight">제어하기 싶은 구조물 안에 내용물 넣기</div>
+        </div>
+        <footer class="section">footer</footer>
+        
+    </div>
+    <header>
+        <nav class="lnb">
+            <ul id="mymenu">
+                <li data-menuanchor="firstPage" class="active"><a href="#firstPage">section1</a></li>
+                <li data-menuanchor="secondPage"><a href="#secondPage">section2</a></li>
+                <li data-menuanchor="thirdPage"><a href="#thirdPage">section3</a></li>
+                <li data-menuanchor="fourthPage"><a href="#fourthPage">section4</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script/jquery.fullPage.js"></script>
+    <script>
+      $('#fullpage').fullpage({
+		    //options here
+		    autoScrolling:true,
+		    scrollHorizontally: true,
+            sectionsColor : ['#ccc', 'yellow', 'pink', 'skyblue'],
+            anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+            menu: '#mymenu',
+            navigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['First page', 'Second page', 'Third and last page','comment','comment2'],
+            slidesNavigation: true,
+            slidesNavPosition: 'bottom',
+	    });
+
+    </script>
+</body>
+</html>
